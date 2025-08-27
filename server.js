@@ -9,6 +9,8 @@ import authRoute from "./src/routes/authRoute.js";
 import imageRoutes from "./src/routes/imageRoute.js";
 import productRouter from "./src/routes/productRoutes.js";
 import categoryRouter from "./src/routes/categoryRoutes.js";
+import reviewRouter from "./src/routes/reviewRoute.js";
+import couponRouter from "./src/routes/couponRoutes.js";
 import webhookRouter from "./src/routes/stripeWebhook.js";
 import stripeRouter from "./src/routes/stripe.js";
 
@@ -38,18 +40,13 @@ app.use(
 app.use(morgan("dev"));
 // app.use(express.json());
 
-import authRoute from "./src/routes/authRoute.js";
-import imageRoutes from "./src/routes/imageRoute.js";
-import { responseClient } from "./src/middleware/responseClient.js";
-import productRouter from "./src/routes/productRoutes.js";
-import categoryRouter from "./src/routes/categoryRoutes.js";
-import reviewRouter from "./src/routes/reviewRoute.js";
 //API endpoints
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/product", productRouter);
 app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/payment", stripeRouter);
 app.use("/api/v1/reviews", reviewRouter);
+app.use("/api/v1/coupons", couponRouter);
 
 //end poins for image
 app.use("/api/v1/all", imageRoutes);
